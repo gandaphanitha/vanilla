@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .menubar {
+            position: fixed;
+            top: 2rem;
+            right: 3rem;
+            font-size: 2rem;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .close-btn {
+            font-size: 1.75rem;
+            background: transparent;
+            border-color: transparent;
+            color: black;
+            cursor: pointer;
+        }
+
+        .links a {
+            display: flex;
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            padding: 10px;
+            color: black;
+            padding: 10px 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .social-icons {
+            justify-self: center;
+            display: flex;
+            padding-bottom: 2rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            row-gap: 1rem;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px grey;
+            background-color: #fff;
+            transform: translate(-100%);
+        }
+
+        .show-sidebar {
+            transform: translate(0);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <div class="menubar">
+            <i class="fa fa-bars" style="font-size:24px"></i>
+        </div>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <ul class="links">
+                <li>
+                    <a href="index.contacts">Home</a>
+                </li>
+                <li>
+                    <a href="index.About">About</a>
+                </li>
+                <li>
+                    <a href="index.Project">Project</a>
+                </li>
+                <li>
+                    <a href="index.Home">Contact</a>
+                </li>
+            </ul>
+            <ul class="social-icons">
+                <li>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-sketch"></i>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </nav>
+    <!-- <script src="./navbar.js"></script> -->
+    <script>
+        const toggleBtn = document.querySelector(".menubar");
+        const closeBtn = document.querySelector(".close-btn");
+        const sidebar = document.querySelector(".sidebar");
+
+        toggleBtn.addEventListener("click", function () {
+            sidebar.classList.toggle("show-sidebar");
+        });
+
+        closeBtn.addEventListener("click", function () {
+            sidebar.classList.remove("show-sidebar");
+        });
+    </script>
+</body>
+
+</html>

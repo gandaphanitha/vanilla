@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 3rem;
+            font-size: 2rem;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .close-btn {
+            font-size: 1.75rem;
+            background: transparent;
+            border-color: transparent;
+
+        }
+
+        .links a {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            color: #707070;
+            text-decoration: none;
+
+        }
+        ul{
+            list-style-type: none;
+        }
+
+        .social-icons {
+            justify-self: center;
+            display: flex;
+            padding-bottom: 2rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20%;
+            height: 100%;
+            padding: 2%;
+            line-height: 400%;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px grey;
+            background-color: #fff;
+            display: none;
+        }
+        .nav-links:hover{
+            background-color: red;
+        }
+        .close-btn{
+            float: end;
+            display: flex;
+        }
+    </style>
+   
+</head>
+
+<body>
+    <nav>
+        <div class="sidebar-toggle" onclick="openNav()">
+            <i class="fa fa-bars" style="font-size:24px"></i>
+            <span class="logo-name">Coding Lab</span>
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <button class="close-btn" onclick="closeNav()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="links">
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-home icon" style="font-size:25px"></i>
+                        <span class="link">Dashboard</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-bell icon" style="font-size:25px"></i>
+                        <span class="link">Notification</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-comment-alt icon" style="font-size:25px"></i>
+                        <span class="link">Messages</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-heart icon" style="font-size:25px"></i>
+                        <span class="link">Likes</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-file icon" style="font-size:25px"></i>
+                        <span class="link">Files</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-gear icon" style="font-size:25px"></i>
+                        <span class="link">Settings</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</body>
+<script>
+    const openNav=()=>{
+        document.querySelector(".sidebar").style.width="250px"
+        document.querySelector(".sidebar").style.display="block"
+    }
+    const closeNav=()=>{
+        document.querySelector(".sidebar").style.width="0px"
+        document.querySelector(".sidebar").style.display="none"
+    }
+</script>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDoList</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        form {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            position: absolute;
+            top: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            width: 400px;
+            /* background-color: yellow; */
+            border-radius: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            display: block;
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        #name{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            border: none;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <form id="form">
+            <input type="text" id="name" placeholder="Name...">
+            <button type="button" id="submitBtn">Submit</button>
+            <!-- <div>
+                <ul id="data-container"></ul>
+            </div> -->
+            
+        </form>
+        <div>
+            <ul id="data-container"></ul>
+        </div>
+       
+    </div>
+
+    <!-- <ul id="data-container"></ul> -->
+</body>
+
+<script>
+    const nameInput = document.querySelector("#name");
+    const emailInput = document.querySelector("#email");
+    const panNumberInput = document.querySelector("#panNumber");
+    const submitBtn = document.querySelector("#submitBtn");
+    const dataContainer = document.querySelector("#data-container");
+
+    submitBtn.addEventListener("click", submitData);
+
+    function submitData() {
+        const uniqueId = Math.floor(Math.random() * 99999);
+        const newData = {
+            name: nameInput.value,
+        };
+        const payload = {
+            name: name.value,
+
+        };
+        displayData(newData);
+        storeData(payload);
+        clearInputFields();
+    }
+    let dataStorage = loadStoredData()
+    //storing item inside local storage
+    function storeData(payload) {
+        dataStorage.push(payload);
+        localStorage.setItem("formData", JSON.stringify(dataStorage));
+    }
+    function loadStoredData() {
+        const storedData = localStorage.getItem("formData");
+        return storeData ? JSON.parse(storedData) : []
+
+    }
+    // function randerstoredData() {
+    //     const data = loadStoredData();
+    //     // console.log(data,'dat inside local storage')
+    //     data.forEach((item) => {
+    //         const readHtml = createRow(item)
+    //         tableRow.insertAdjacentHTML("beforeEnd", readHtml)
+    //     })
+    // }
+    // const nameInput = document.querySelector("#name");
+    // const submitBtn = document.querySelector("#submitBtn");
+    // const dataContainer = document.querySelector("#data-container");
+
+    // submitBtn.addEventListener("click", submitData);
+
+    // // Load stored data when the page loads
+    // window.addEventListener("load", function () {
+    //     loadStoredData();
+    // });
+
+    // function submitData() {
+    //     const uniqueId = Math.floor(Math.random() * 99999);
+    //     const newData = {
+    //         name: nameInput.value,
+    //     };
+
+    //     displayData(newData);
+    //     storeData(newData);
+    //     clearInputFields();
+    // }
+
+    // function storeData(data) {
+    //     // Retrieve existing data from local storage
+    //     let storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+    //     // Add new data
+    //     storedData.push(data);
+
+    //     // Store updated data back to local storage
+    //     localStorage.setItem("formData", JSON.stringify(storedData));
+    // }
+
+    // function loadStoredData() {
+    //     const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+    //     // Display stored data
+    //     storedData.forEach(function (data) {
+    //         displayData(data);
+    //     });
+    // }
+
+    // function displayData(data) {
+    //     const newDataHTML = `
+    //         <li>${data.name}</li>
+    //     `;
+    //     dataContainer.insertAdjacentHTML("afterbegin", newDataHTML);
+    // }
+
+    // function clearInputFields() {
+    //     nameInput.value = "";
+    // }
+
+
+    // function displayData(data) {
+    //     const newDataHTML = `
+    //         <ul>
+    //             <li>${data.name}</li>
+
+    //         </ul>
+    //     `;
+    //     dataContainer.insertAdjacentHTML("afterbegin", newDataHTML);
+    // }
+
+    // function clearInputFields() {
+    //     nameInput.value = "";
+    // }
+</script>
+
+</html>

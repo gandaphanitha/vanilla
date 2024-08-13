@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            line-height: 200%;
+
+        }
+
+
+
+        .content {
+            border-radius: 4px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid grey;
+            background-color: #fff;
+            width: 400px;
+            text-align: center;
+            gap: 10px;
+            height: 75vh;
+        }
+
+        .sign {
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid grey;
+            height: 10vh;
+            padding: 15px;
+        }
+
+        .imaging {
+            margin-top: 10px;
+            width: 20vw;
+            height: 15vh;
+        }
+
+        .input-group {
+            margin: 0 40px 6px;
+            line-height: 400%;
+        }
+
+        #username {
+            padding: 10px 10px 8px 8px;
+            width: 80%;
+            outline: none;
+            font-size: 15px;
+        }
+
+        #password {
+            padding: 10px 10px 8px 8px;
+            width: 80%;
+            font-size: 15px;
+        }
+
+        .btn-login {
+            width: 80%;
+            height: 6vh;
+            background-color: hsl(210, 87%, 59%);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .divine {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .small {
+            height: 1%;
+            width: 10vw;
+            border: 1px solid black;
+        }
+
+        .small1 {
+            height: 1%;
+            width: 12vw;
+            border: 1px solid black;
+        }
+
+        .btn-fb {
+            border: none;
+            border-style: none;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .log {
+            font-size: 15px;
+            font-weight: 500;
+            color: #385185;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .aa {
+            height: 40px;
+        }
+
+        .wrapper {
+            display: grid;
+            gap: 10px;
+        }
+
+        .box {
+            border: 1px solid black;
+            width: 50%;
+        }
+
+        .boxgoto {
+            border-radius: 10px;
+            background-color: #fff;
+            border: 1px solid grey;
+            width: 400px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        #loginform {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4%;
+            font-size: 15px;
+        }
+
+        .english {
+            display: flex;
+            justify-content: center;
+            gap: 4%;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .language {
+            border: none;
+            background-color: whitesmoke;
+        }
+
+        @media screen and (max-width:700px) {
+            .footer {
+                display: grid;
+                grid-template-columns: repeat(8, 45px);
+                grid-template-rows: auto;
+                /* grid-gap:2%; */
+                font-size: 10px;
+            }
+
+            .small {
+                height: 1%;
+                width: 24vw;
+                border: 1px solid black;
+            }
+
+            .small1 {
+                height: 1%;
+                width: 25vw;
+                border: 1px solid black;
+            }
+
+            .english {
+                font-size: 12px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="wrapper">
+            <div class="content">
+                <img class="imaging"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png"
+                    alt="Instagram">
+                <form action="" id="loginform">
+                    <input type="email" placeholder="Phone number,username,or email" id="username" required>
+                    <input type="password" placeholder="password" id="password">
+
+                    <input type="button" value="Login" class="btn-login" onclick="login()">
+                    <div class="divine">
+                        <div class="small"></div>
+                        <div>OR</div>
+                        <div class="small1"></div>
+                    </div>
+                    <div class="btn-group">
+                        <div class="btn-fb">
+                            <i class="fa fa-facebook-f" style="font-size:20px; color:hsl(210, 87%, 59%)"></i>
+                            <p class="log">Log in with Facebook</p>
+                        </div>
+                    </div>
+                    <a href="#" class="forgot-pw">Forgot password?</a>
+
+                </form>
+            </div>
+            <div class="sign">
+                <p>
+                    Don't have an account?
+                    <a href="#" style="color:hsl(210, 87%, 59%) ;">Sign up</a>
+                </p>
+            </div>
+            <div class="app">
+                <p>Get the app.</p>
+                <div class="store-link">
+                    <a href="#">
+                        <img alt="Get it on Google Play" class="aa"
+                            src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png">
+                    </a>
+                    <a href="#">
+                        <img alt="Get it from Microsoft" class="aa"
+                            src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div> <a href="">Meta</a></div>
+            <div><a href="">About</a></div>
+            <div><a href=""> Blog</a></div>
+            <div><a href=""> Jobs </a></div>
+            <div> <a href=""> Help</a></div>
+            <div><a href=""> API</a></div>
+            <div><a href="">Privacy</a></div>
+            <div><a href=""> Terms</a></div>
+            <div><a href="">Locations</a></div>
+            <div> <a href="">Threads</a></div>
+            <div><a href="">MetaVerified</a></div>
+            <div><a href="">InstagramLite</a></div>
+        </div>
+        <div class="english">
+            <select class="language">
+                <option value="af">English</option>
+                <option value="ar">Telugu</option>
+                <option value="cs">Hidhi</option>
+                <option value="da">french</option>
+                <option value="de">Deutsch</option>
+                <option value="el">marati</option>
+                <option value="en">English</option>
+                <option value="en-gb">English (UK)</option>
+                <option value="es">kanada</option>
+                <option value="es-la">tamil</option>
+            </select>
+            <div><a href=""> © 2024 Instagram from Meta</a></div>
+        </div>
+
+    </footer>
+
+</body>
+<script>
+    
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const specialChars = ["!", "@", "#", "$", "%", "^", "&", "*"];
+
+        if (password.length < 8) {
+            console.log("Password is too short. It must be at least 8 characters long.");
+            return;
+        }
+
+        // Check if the password contains at least one special character
+        let containsSpecialChar = false;
+        for (let i = 0; i < password.length; i++) {
+            if (specialChars.includes(password[i])) {
+                containsSpecialChar = true;
+                break;
+            }
+        }
+
+        if (!containsSpecialChar) {
+            console.log("Password must contain at least one special character.");
+            return;
+        }
+
+        console.log("Username: " + username);
+        console.log("Password: " + password);
+    }
+
+    // function login() {
+    //     const username = document.getElementById("username").value;
+    //     const password = document.getElementById("password").value;
+    //     const specialChars = ["!", "@", "#", "$", "%", '^', "&", "*"];
+
+    //     let containsSpecialChar = false;
+    //     for (const char of specialChars) {
+    //         if (password.includes(char)) {
+    //             containsSpecialChar = true;
+    //             break;
+    //         }
+    //     }
+
+    //     if (password.length ===8 && !containsSpecialChar) {
+    //         console.log(" pasword is at least 8 characters  and at least one special character.");
+    //         return;
+    //     } else {
+    //         console.log("Username: " + username);
+    //         console.log("Password: " + password);
+    //     }
+    // }
+    //     function login(){
+    //     const username = document.getElementById("username").value;
+    //     const password = document.getElementById("password").value;
+    //     console.log("Username:"+ username);
+    //     console.log("Password:"+ password);
+    // };
+</script>
+
+</html>

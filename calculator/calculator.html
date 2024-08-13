@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        table,tr,td{
+            border:1px solid black;
+        }
+        button{
+            width:100%
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <h1>Simple Calculator</h1>
+        <tr >
+            <td colspan="3"> <input type="text" id="res"></td>
+            <td><button class="btn">AC</button></td>
+        </tr>
+        <tr>
+            <td><button>1</button></td>
+            <td><button>2</button></td>
+            <td><button>3</button></td>
+            <td><button>+</button></td>
+        </tr>
+        <tr>
+            <td><button>4</button></td>
+            <td><button>5</button></td>
+            <td><button>6</button></td>
+            <td><button>-</button></td>
+        </tr>
+        <tr>
+            <td><button>7</button></td>
+            <td><button>8</button></td>
+            <td><button>9</button></td>
+            <td><button>*</button></td>
+        </tr>
+        <tr>
+            <td><button>0</button></td>
+            <td><button>%</button></td>
+            <td><button>/</button></td>
+            <td><button>=</button></td>
+        </tr>
+
+        <script>
+            const buttons=document.getElementsByName("button").value=""
+            const result=document.getElementById("res").value=""
+            buttons.addEventListener("click",calculator)
+            function calculator(){
+
+            }
+        </script>
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,255 @@
+[6:25 pm, 3/5/2024] Phanitha: <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDoList</title>
+    <!-- <link rel="stylesheet" href="./todolist.css"> -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            padding: 0px 5px;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form class="form">
+        <input type="text" class="input" placeholder="Enter your task" autocomplete="off" />
+        <ul class="list">
+        </ul>
+    </form> -->
+    <!-- <div class="container" id="container"…
+[9:27 pm, 3/5/2024] Phanitha: <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDoList</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: greenyellow;
+        }
+
+        .form {
+            position: absolute;
+            top: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            width: 400px;
+            background-color: yellow;
+            border-radius: 10px;
+        }
+
+        #name {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            border: none;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        #list {
+            padding: 0;
+            margin: 0;
+        }
+
+        #list li {
+            list-style-type: none;
+            padding: 20px;
+            font-family: cursive;
+            border-top: dotted;
+            border-color: darkgray;
+            position: relative;
+        }
+
+        #list li .fa-trash {
+            color: red;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        #list li .fa-check-square {
+            color: green;
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        #list li.checked {
+            color: darkgray;
+            text-decoration: line-through;
+        }
+
+        #list li.checked .fa-check-square {
+            color: darkgray;
+        }
+
+        #name {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            border: none;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form">
+        <input type="text" class="input" placeholder="Enter your task" autocomplete="off" />
+        <button>ADD</button>
+        <ul class="list">
+            <!-- <li>
+      Buy Milk <i class="fas fa-check-square"></i
+      ><i class="fas fa-trash"></i>
+    </li>
+    <li class="checked">
+      Call David <i class="fas fa-check-square"></i
+      ><i class="fas fa-trash"></i>
+    </li> -->
+        </ul>
+    </form>
+
+    <!-- <ul id="data-container"></ul> -->
+</body>
+
+<script>
+    // const nameInput = document.querySelector("#name");
+    // const emailInput = document.querySelector("#email");
+    // const panNumberInput = document.querySelector("#panNumber");
+    // const submitBtn = document.querySelector("#submitBtn");
+    // const dataContainer = document.querySelector("#data-container");
+
+    // submitBtn.addEventListener("click", submitData);
+
+    // function submitData() {
+    //     const uniqueId = Math.floor(Math.random() * 99999);
+    //     const newData = {
+    //         name: nameInput.value,
+    //     };
+    //     const payload = {
+    //         name: name.value,
+
+    //     };
+    //     displayData(newData);
+    //     storeData(payload);
+    //     clearInputFields();
+    // }
+    // let dataStorage = loadStoredData()
+    // //storing item inside local storage
+    // function storeData(payload) {
+    //     dataStorage.push(payload);
+    //     localStorage.setItem("formData", JSON.stringify(dataStorage));
+    // }
+    // function loadStoredData() {
+    //     const storedData = localStorage.getItem("formData");
+    //     return storeData ? JSON.parse(storedData) : []
+
+    // }
+    // function randerstoredData() {
+    //     const data = loadStoredData();
+    //     // console.log(data,'dat inside local storage')
+    //     data.forEach((item) => {
+    //         const readHtml = createRow(item)
+    //         tableRow.insertAdjacentHTML("beforeEnd", readHtml)
+    //     })
+    // }
+    const nameInput = document.querySelector("#input");
+    const submitBtn = document.querySelector("#submitBtn");
+    const list = document.querySelector("#list");
+
+    submitBtn.addEventListener("click", submitData);
+
+    // Load stored data when the page loads
+    window.addEventListener("load", function () {
+        loadStoredData();
+    });
+
+    function submitData() {
+        const uniqueId = Math.floor(Math.random() * 99999);
+        const newData = {
+            name: nameInput.value,
+        };
+
+        displayData(newData);
+        storeData(newData);
+        clearInputFields();
+    }
+
+    function storeData(data) {
+        // Retrieve existing data from local storage
+        let storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+        // Add new data
+        storedData.push(data);
+
+        // Store updated data back to local storage
+        localStorage.setItem("formData", JSON.stringify(storedData));
+    }
+
+    function loadStoredData() {
+        const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+        // Display stored data
+        storedData.forEach(function (data) {
+            displayData(data);
+        });
+    }
+
+    function displayData(data) {
+        const newDataHTML = `
+            <li>${data.name}</li>
+        `;
+        list.insertAdjacentHTML("afterbegin", newDataHTML);
+    }
+
+    function clearInputFields() {
+        nameInput.value = "";
+    }
+
+
+    // function displayData(data) {
+    //     const newDataHTML = `
+    //         <ul>
+    //             <li>${data.name}</li>
+
+    //         </ul>
+    //     `;
+    //     dataContainer.insertAdjacentHTML("afterbegin", newDataHTML);
+    // }
+
+    // function clearInputFields() {
+    //     nameInput.value = "";
+    // }
+</script>
+
+</html>

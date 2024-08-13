@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./review.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        body h1 {
+            color: blue;
+            margin-top: 50px;
+            font-weight: 700;
+        }
+
+        .main {
+            display: grid;
+            place-items: center;
+        }
+
+        .review {
+            background-color: white;
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px blue;
+            margin-top: 30px;
+            row-gap: 10px;
+        }
+
+        .image1 img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            box-shadow: 3px 3px 3px orangered;
+        }
+    </style>
+
+<body>
+    <h1>Our Reviews</h1>
+    <div class="main">
+        <div class="review">
+            <div class="image">
+                <img src="https://as2.ftcdn.net/v2/jpg/01/51/99/39/1000_F_151993994_mmAYzngmSbNRr6Fxma67Od3WHrSkfG5I.jpg"
+                    alt="" id="person-img">
+            </div>
+            <h3 class="name" id="author">Vijaya</h3>
+            <h4 class="job" id="job"> Frontend Developer</h4>
+            <p class="para" id="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, iste, ea
+                blanditiis libero obcaecati saepe enim quo quod perspiciatis vel eligendi fugiat pariatur itaque
+                voluptate omnis dolores minus nobis incidunt.</p>
+            <div class="btn">
+                <button class="prev-btn">Prew</button>
+                <button class="next-btn">Next</button>
+                <!-- <button class="random-btn">Random</button> -->
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const image = document.querySelector(".image")
+        const name = document.querySelector(".name")
+        const jober = document.querySelector(".job")
+        const btn = document.querySelector(".btn")
+
+
+        const prev = documnet.querySelector(".prev-btn")
+        const next = document.querySelector(".next-btn")
+        let currentIndex = 0;
+        let maxIndex=review.length-1;
+
+        prev.addEventListener("click",prevEvent)
+        function prevEvent(){
+            if(currentIndex >0){
+                currentIndex =currentIndex -1
+            }
+        }
+        next.addEventListener("click",nextEvent)
+        function nextEvent(){
+            if(currentIndex<maxIndex){
+                currentIndex+=1
+            }
+        }
+
+    </script>
+</body>
+
+</html>

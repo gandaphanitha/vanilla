@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar</title>
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+  <!-- styles -->
+  <!-- <link rel="stylesheet" href="sidebar1.css" /> -->
+  <style>
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .sidebar-toggle {
+      position: fixed;
+      top: 2rem;
+      right: 3rem;
+      font-size: 2rem;
+    }
+
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .close-btn {
+      font-size: 1.75rem;
+      background: transparent;
+      border-color: transparent;
+
+    }
+
+    .links a {
+      /* display: flex; */
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      padding: 1rem 1.5rem;
+      color: black;
+    }
+
+    .social-icons {
+      justify-self: center;
+      display: flex;
+      padding-bottom: 2rem;
+    }
+
+    .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      color: var(--clr-primary-5);
+      transition: var(--transition);
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      row-gap: 1rem;
+      border-radius: 5px;
+      box-shadow: 1px 1px 4px grey;
+      background-color: #fff;
+      transform: translate(-100%);
+    }
+
+    .show-sidebar {
+      transform: translate(0);
+    }
+
+    /* @media screen and (min-width: 676px) {
+  .sidebar {
+    width: 400px;
+  }
+} */
+  </style>
+</head>
+
+<body>
+  <button class="sidebar-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <!-- <img src="logo.svg" class="logo" alt="" /> -->
+      <button class="close-btn"><i class="fas fa-times"></i></button>
+    </div>
+    <!-- links -->
+    <ul class="links">
+      <li>
+        <a href="index.html">home</a>
+      </li>
+      <li>
+        <a href="about.html">about</a>
+      </li>
+      <li>
+        <a href="projects.html">projects</a>
+      </li>
+      <li>
+        <a href="contact.html">contact</a>
+      </li>
+    </ul>
+    <!-- social media -->
+    <ul class="social-icons">
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-behance"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.twitter.com">
+          <i class="fab fa-sketch"></i>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <!-- javascript -->
+  <!-- <script src="sidebar1.js"></script> -->
+  <script>
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+    const closeBtn = document.querySelector(".close-btn");
+    const sidebar = document.querySelector(".sidebar");
+
+    toggleBtn.addEventListener("click", function () {
+
+      sidebar.classList.toggle("show-sidebar");
+    });
+
+    closeBtn.addEventListener("click", function () {
+      sidebar.classList.remove("show-sidebar");
+    }); 
+  </script>
+</body>
+
+</html>

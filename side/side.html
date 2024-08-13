@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 3rem;
+            font-size: 2rem;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .close-btn {
+            font-size: 1.75rem;
+            background: transparent;
+            border-color: transparent;
+
+        }
+
+        .links a {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            padding: 30px 30px;
+            color: #707070;
+            text-decoration: none;
+
+        }
+
+        .social-icons {
+            justify-self: center;
+            display: flex;
+            padding-bottom: 2rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            color: var(--clr-primary-5);
+            transition: var(--transition);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            display: grid;
+            row-gap: 1rem;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px grey;
+            background-color: #fff;
+            transform: translate(-100%);
+        }
+
+        .show-sidebar {
+            transform: translate(0);
+        }
+
+/* 
+        @media screen and (min-width: 676px) {
+            .sidebar {
+                width: 400px;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="sidebar-toggle">
+            <i class="fa fa-bars" style="font-size:24px"></i>
+            <span class="logo-name">Coding Lab</span>
+        </div>
+        <div class="sidebar">
+
+            <div class="sidebar-header">
+
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <!-- <div class="sidebar-center"> -->
+            <ul class="links">
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-home icon" style="font-size:20px"></i>
+                        <span class="link">Dashboard</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-bell icon" style="font-size:20px"></i>
+                        <span class="link">Notification</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-comment-alt icon" style="font-size:20px"></i>
+                        <span class="link">Messages</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-heart icon" style="font-size:20px"></i>
+                        <span class="link">Likes</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-file icon" style="font-size:20px"></i>
+                        <span class="link">Files</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#" class="nav-links">
+                        <i class="fa fa-gear icon" style="font-size:20px"></i>
+                        <span class="link">Settings</span>
+                    </a>
+                </li>
+
+            </ul>
+            <!-- </div> -->
+        </div>
+    </nav>
+    <script>
+        const toggle = document.querySelector(".sidebar-toggle");
+        const closeBtn = document.querySelector(".close-btn");
+        const sidebar = document.querySelector(".sidebar");
+
+        toggle.addEventListener("click", function () {
+            sidebar.classList.toggle("show-sidebar");
+        });
+
+        closeBtn.addEventListener("click", function () {
+            sidebar.classList.remove("show-sidebar");
+        });
+    </script>
+    <!-- <script src="./sidebar.js"></script> -->
+
+</body>
+
+</html>

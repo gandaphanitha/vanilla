@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: greenyellow;
+        }
+
+        .form {
+            position: absolute;
+            top: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            width: 400px;
+            background-color: yellow;
+            border-radius: 10px;
+        }
+
+        #name {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            border: none;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        #name::placeholder {
+            color: lightgray;
+        }
+
+        #data-container {
+            padding: 0;
+            margin: 0;
+        }
+
+        #data-container li {
+            list-style-type: none;
+            padding: 20px;
+            font-family: cursive;
+            border-top: dotted;
+            border-color: darkgray;
+            position: relative;
+        }
+
+        /* #data-container li .fa-trash {
+            color: red;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        } */
+        /* 
+        #data-container li .fa-check-square {
+            color: green;
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        } */
+
+        /* #data-container li.checked {
+            color: darkgray;
+            text-decoration: line-through;
+        }
+
+        #data-container li.checked .fa-check-square {
+            color: darkgray;
+        } */
+
+        div {
+            display: flex;
+        }
+
+        #submitBtn {
+            background-color: forestgreen;
+        }
+
+        #data-container {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #data-container li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        #data-container li:last-child {
+            border-bottom: none;
+        }
+
+        #data-container li.done {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+    </head>
+
+    <body>
+        <form class="form">
+            <div>
+                <input type="text" id="name" placeholder="Enter your task" autocomplete="off" />
+                <button type="button" id="submitBtn">ADD</button>
+            </div>
+            <ul id="data-container">
+                <!-- <li>
+          Buy Milk <i class="fas fa-check-square"></i
+          ><i class="fas fa-trash"></i>
+        </li>
+        <li class="checked">
+          Call David <i class="fas fa-check-square"></i
+          ><i class="fas fa-trash"></i>
+        </li> -->
+            </ul>
+        </form>
+    </body>
+    <script>
+        const nameInput = document.querySelector("#name");
+        const submitBtn = document.querySelector("#submitBtn");
+        const dataContainer = document.querySelector("#data-container");
+
+        submitBtn.addEventListener("click", submitData);
+        // Load stored data when the page loads
+        window.addEventListener("load", function () {
+            loadStoredData();
+        });
+
+        function submitData() {
+            const uniqueId = Math.floor(Math.random() * 99999);
+            const newData = {
+                name: nameInput.value,
+            };
+
+            displayData(newData);
+            storeData(newData);
+            clearInputFields();
+            renderTodos()
+        }
+
+        function storeData(data) {
+            // Retrieve existing data from local storage
+            let storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+            // Add new data
+            storedData.push(data);
+
+            // Store updated data back to local storage
+            localStorage.setItem("formData", JSON.stringify(storedData));
+        }
+
+        function loadStoredData() {
+            const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+            // Display stored data
+            storedData.forEach(function (data) {
+                displayData(data);
+            });
+        }
+
+        function displayData(data) {
+            const newDataHTML = `
+            <li>${data.name}</li>
+        `;
+            dataContainer.insertAdjacentHTML("afterbegin", newDataHTML);
+        }
+
+        function clearInputFields() {
+            nameInput.value = "";
+        }
+        function renderTodos() {
+            dataContainer.innerHTML = '';
+            todos.forEach(todo => {
+                const todoItem = document.createElement('li');
+                const deleteButton = document.createElement('button');
+                deleteButton.innerHTML = '  <i class="fa fa-trash"></i>';
+                deleteButton.addEventListener('click', deleteTodo);
+                const textSpan = document.createElement('span');
+                textSpan.textContent = todo.text;
+                todoItem.appendChild(textSpan);
+                todoItem.appendChild(deleteButton);
+                todoItem.setAttribute('data-id', todo.id);
+                if (todo.done) {
+                    todoItem.classList.add('done');
+                }
+                todoItem.addEventListener('click', toggleTodo);
+                dataContainer.appendChild(todoItem);
+            });
+        }
+
+
+
+        function toggleTodo() {
+            const id = parseInt(this.getAttribute('data-id'));
+            todos = todos.map(todo => {
+                if (todo.id === id) {
+                    todo.done = !todo.done;
+                }
+                return todo;
+            });
+            saveTodos(todos);
+            renderTodos();
+        }
+
+        function deleteTodo() {
+            const id = parseInt(this.parentElement.getAttribute('data-id'));
+            todos = todos.filter(todo => todo.id !== id);
+            saveTodos(todos);
+            renderTodos();
+        }
+
+        renderTodos();
+
+
+
+
+    </script>
+
+</html>

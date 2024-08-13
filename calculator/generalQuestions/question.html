@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Questions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <!-- extra fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-gap: 4%;
+            /* line-height: 300%; */
+        }
+        h2{
+            font-family: 'Courier New', Courier, monospace;
+            color: hsl(60, 74%, 55%);
+        }
+
+        .question {
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 1.5rem 0 1.5rem;
+            margin-bottom: 2rem;
+            width: 50vw;
+        }
+
+        .question-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: capitalize;
+            padding-bottom: 1rem;
+        }
+
+        .question-title p {
+            margin-bottom: 0;
+            /* color: grey;  */
+        }
+
+        .question-btn {
+            font-size: 1.5rem;
+        }
+
+        .question-text {
+            padding: 1rem 0 1.5rem 0;
+        }
+
+        .question-text.hidden {
+            display: none;
+        }
+
+        .minus-icon {
+            display: none;
+        }
+
+        .show-text .minus-icon {
+            display: inline;
+        }
+
+        .show-text .plus-icon {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>General Questions</h2>
+    <div class="question">
+        <div class="question-title">
+            <p>do you accept all major credit cards?</p>
+            <button class="question-btn">
+                <span class="plus-icon">
+                    <i class="far fa-plus-square"></i>
+                </span>
+                <span class="minus-icon">
+                    <i class="far fa-minus-square"></i>
+                </span>
+            </button>
+        </div>
+        <div class="question-text hidden">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, unde quia. Dolor recusandae
+                repellat maxime est eligendi sed, ab blanditiis aperiam ullam, ex sint accusantium dolorum dignissimos
+                eum, enim provident!</p>
+        </div>
+    </div>
+    <div class="question">
+        <div class="question-title">
+            <p>do you support local farmers?</p>
+            <button class="question-btn">
+                <span class="plus-icon">
+                    <i class="far fa-plus-square"></i>
+                </span>
+                <span class="minus-icon">
+                    <i class="far fa-minus-square"></i>
+                </span>
+            </button>
+        </div>
+        <div class="question-text hidden">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, unde quia. Dolor recusandae
+                repellat maxime est eligendi sed, ab blanditiis aperiam ullam, ex sint accusantium dolorum dignissimos
+                eum, enim provident!</p>
+        </div>
+    </div>
+    <div class="question">
+        <div class="question-title">
+            <p>do you use organic ingredients?</p>
+            <button class="question-btn">
+                <span class="plus-icon">
+                    <i class="far fa-plus-square"></i>
+                </span>
+                <span class="minus-icon">
+                    <i class="far fa-minus-square"></i>
+                </span>
+            </button>
+        </div>
+        <div class="question-text hidden">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, unde quia. Dolor recusandae
+                repellat maxime est eligendi sed, ab blanditiis aperiam ullam, ex sint accusantium dolorum dignissimos
+                eum, enim provident!</p>
+        </div>
+    </div>
+    <script>
+
+        const questions = document.querySelectorAll(".question");
+
+        for (let i = 0; i < questions.length; i++) {
+            const question = questions[i];
+            const btn = question.querySelector(".question-btn");
+
+            btn.addEventListener("click", function () {
+                const text = question.querySelector(".question-text");
+                text.classList.toggle("hidden");
+                question.classList.toggle("show-text");
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+const questions = document.querySelectorAll(".question");:
+This line selects all elements with the class name .question using the querySelectorAll method. It returns a NodeList containing all the elements matching the selector.
+questions.forEach(function (question) { ... });:
+This iterates over each element in the questions NodeList using the forEach method.
+It provides a callback function that will be executed for each element in the NodeList. This function receives each individual element as an argument, which is represented by the parameter question.
+const btn = question.querySelector(".question-btn");:
+Inside the loop, this line selects the button element with the class name .question-btn within the current .question element.
+It uses querySelector method to find the first descendant element that matches the provided CSS selector.
+btn.addEventListener("click", function () { ... });:
+This adds a click event listener to the button btn.
+When the button is clicked, the callback function provided (the second argument) will be executed.
+const text = question.querySelector(".question-text");:
+Inside the click event listener function, this line selects the element with the class name .question-text within the current .question element.
+It finds the paragraph element associated with the current question.
+text.classList.toggle("hidden");:
+This toggles the class name hidden on the paragraph element text.
+If the class is present, it removes it; if it's absent, it adds it.
+This class is used to control whether the paragraph is displayed or hidden.
+question.classList.toggle("show-text");:
+This toggles the class name show-text on the current .question element.
+This class is used to control additional styling or behavior on the question container. In this case, it might be used to change the appearance of the question (e.g., expand or collapse). However, in the provided code, it doesn't appear to be used for any visible effect.
+
+
+ -->
